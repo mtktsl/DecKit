@@ -9,6 +9,54 @@ but now in a **declarative, chainable style** that feels like SwiftUI.
 
 ---
 
+## 🚀 Quick Start
+
+- DeclarativeViewController:
+```swift
+import DecKit
+import UIKit
+
+final class ViewController: DeclarativeViewController {
+
+    @UIBinding var text = "Hello World"
+
+    override var body: UIView {
+        UILabel()
+            .text($text)
+            .font(.systemFont(ofSize: 36))
+            .textColor(.white)
+            .textAlignment(.center)
+            .onTapGesture { [weak self] in
+                self?.text = "Changed!"
+            }
+    }
+}
+```
+
+- DeclarativeUIView:
+```swift
+import DecKit
+import UIKit
+
+final class MyView: DeclarativeUIView {
+
+    @UIBinding var text = "Hello World"
+
+    override var body: UIView {
+        UILabel()
+            .text($text)
+            .font(.systemFont(ofSize: 36))
+            .textColor(.white)
+            .textAlignment(.center)
+            .onTapGesture { [weak self] in
+                self?.text = "Changed!"
+            }
+    }
+}
+```
+
+When the label is tapped, the `@UIBinding` updates, and the label’s text changes automatically.
+
 ## ✨ Features
 
 - **Declarative syntax** for UIKit views:
@@ -80,69 +128,23 @@ UILabel()
 
 # 📦 Installation
 
-## Add it to your project:
-- In Xcode, go to File > Add Packages </br>
-- Enter the repository URL: `https://github.com/mtktsl/DecKit.git` </br>
-- Select Add Package.
+### Add via Xcode
+1. In Xcode, go to **File > Add Packages…**
+2. Enter the repository URL:  
+   `https://github.com/mtktsl/DecKit.git`
+3. Select **Add Package**.
 
-## Add it to your SPM dependencies:
+### Add via Package.swift
+Add DecKit to your dependencies in `Package.swift`:
 
-- Write the code down below to package.swift file:
 ```swift
 dependencies: [
     .package(url: "https://github.com/mtktsl/DecKit.git", from: "1.0.0")
 ]
+
 ```
 
-# 🚀 Quick Start
-
-- DeclarativeViewController:
-```swift
-import DecKit
-import UIKit
-
-final class ViewController: DeclarativeViewController {
-
-    @UIBinding var text = "Hello World"
-
-    override var body: UIView {
-        UILabel()
-            .text($text)
-            .font(.systemFont(ofSize: 36))
-            .textColor(.white)
-            .textAlignment(.center)
-            .onTapGesture { [weak self] in
-                self?.text = "Changed!"
-            }
-    }
-}
-```
-
-- DeclarativeUIView:
-```swift
-import DecKit
-import UIKit
-
-final class MyView: DeclarativeUIView {
-
-    @UIBinding var text = "Hello World"
-
-    override var body: UIView {
-        UILabel()
-            .text($text)
-            .font(.systemFont(ofSize: 36))
-            .textColor(.white)
-            .textAlignment(.center)
-            .onTapGesture { [weak self] in
-                self?.text = "Changed!"
-            }
-    }
-}
-```
-
-When the label is tapped, the `@UIBinding` updates, and the label’s text changes automatically.
-
-## 🔍 How It Works
+# 🔍 How It Works
 - `UIBinding<T>` is a class‑based property wrapper built on top of `@Published`.
 - Each binding manages its own Combine subscription and ensures updates are delivered on the main run loop.
 - BindingObservable is a protocol adopted by `UIView` that provides the onChange(of:) API.
@@ -155,4 +157,4 @@ When the label is tapped, the `@UIBinding` updates, and the label’s text chang
 - Additional built‑in modifiers for UIKit components
 
 # 🤝 Contributing
-Contributions are welcome! Feel free to open issues or submit pull requests to help expand DecKit’s declarative UIKit ecosystem.
+Contributions are welcome! Feel free to open issues or submit pull requests to help expand DecKit.
