@@ -1,0 +1,15 @@
+{
+  "originHash" : "663f5d409a22f4e892d68ad417d0974d21e2cfe3360882974693c196b7e6c0f7",
+  "pins" : [
+    {
+      "identity" : "shortconstraint",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mtktsl/ShortConstraint.git",
+      "state" : {
+        "revision" : "8479c819adf78f405eb49a25ea1a1eda2c7509e3",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
