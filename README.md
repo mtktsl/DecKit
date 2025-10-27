@@ -9,6 +9,11 @@ but now in a **declarative, chainable style** that feels like SwiftUI.
 
 ---
 
+## ⚙️ Requirements
+- Swift 6.2
+- Minimum iOS target: v13
+
+
 ## 🚀 Quick Start
 
 - DeclarativeViewController:
@@ -141,8 +146,9 @@ Add DecKit to your dependencies in `Package.swift`:
 dependencies: [
     .package(url: "https://github.com/mtktsl/DecKit.git", from: "1.0.0")
 ]
-
 ```
+
+
 
 # 🔍 How It Works
 - `UIBinding<T>` is a class‑based property wrapper built on top of `@Published`.
