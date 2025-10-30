@@ -154,7 +154,7 @@ dependencies: [
 - `UIBinding<T>` is a class‑based property wrapper built on top of `@Published`.
 - Each binding manages its own Combine subscription and ensures updates are delivered on the main run loop.
 - BindingObservable is a protocol adopted by `UIView` that provides the onChange(of:) API.
-- Extension methods (like `.text(_:)`, `.font(_:)v, `.title(_:)`) use onChange to reactively update views when the bound value changes.
+- Extension methods (like `.text(_:)`, `.font(_:)`, `.title(_:)`) use onChange to reactively update views when the bound value changes.
 - `DeclarativeUIView` and `DeclarativeUIViewController` provide an `open var body: UIView` property, mirroring SwiftUI’s design.
 - This design means you don’t need to manage AnyCancellable sets in your views — bindings clean up after themselves.
 
